@@ -1,6 +1,14 @@
 export const productData = {
   products: [
     {
+      id: "UC1233",
+      description: "Small Hat",
+      category: "Headgear",
+      price: 8,
+      unitType: "count",
+      taxBand: "standard",
+    },
+    {
       id: "UC1234",
       description: "Large Hat",
       category: "Headgear",

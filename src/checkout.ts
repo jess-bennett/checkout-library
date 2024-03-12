@@ -2,14 +2,12 @@ import { productData } from "./utils/productData";
 import { BasketItem } from "./utils/types";
 
 //basic quantity function
-export function totalPrice(items: BasketItem[]) {
+export function totalPrice(items: Record<string, number>) {
   let totalPrice = 0;
 
-  items.forEach((item: BasketItem) => {
-    const price = getPriceById(item.id);
-
-    const subtotal = price * item.quantity;
-
+  Object.entries(items).forEach(([id, quantity]) => {
+    const price = getPriceById(id);
+    const subtotal = price * quantity;
     totalPrice += subtotal;
   });
 

@@ -25,6 +25,22 @@ export const productData = {
       taxBand: "lower",
     },
     {
+      id: "UC1238",
+      description: "Blunt Sand",
+      category: "Material",
+      price: 7.5,
+      unitType: "kilogram",
+      taxBand: "lower",
+    },
+    {
+      id: "UC1231",
+      description: "Tank Fuel",
+      category: "Fuel",
+      price: 80,
+      unitType: "litre",
+      taxBand: "higher",
+    },
+    {
       id: "UC1232",
       description: "Rocket Fuel",
       category: "Fuel",

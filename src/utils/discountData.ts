@@ -1,5 +1,5 @@
-export const discounts = {
-  discount: [
+export const discountData = {
+  discounts: [
     {
       category: "headgear",
       discountValue: 0.05,

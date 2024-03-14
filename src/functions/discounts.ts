@@ -1,4 +1,4 @@
-import { Items } from "../checkout";
+import { Items } from "./checkout";
 import { getCategoryById, getDiscountForCategory } from "./helperFunctions";
 import { calculateDataPerItem } from "./subtotals";
 
@@ -14,7 +14,13 @@ export function calculateTotalDiscount(items: Items) {
 }
 
 export function calculateDiscountPerItem(id: string, subtotal: number) {
+  if (subtotal <= 0) {
+    return 0;
+  }
   const category = getCategoryById(id);
+  if (category === null) {
+    return 0;
+  }
   const discount = getDiscountForCategory(category);
   const totalDiscount = subtotal * discount;
 

@@ -3,8 +3,25 @@
   "version": "1.0.0",
   "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
   "main": "src/index.ts",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
   "types": "dist/index.d.ts",
   "files": [
     "/dist"
-  ]
+  ],
+  "dependencies": {
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.12",
+    "@types/jest": "^29.5.12",
+    "@types/mocha": "^10.0.6",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  }
 }

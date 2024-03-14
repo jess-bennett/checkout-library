@@ -1,6 +1,6 @@
-import { Items } from "../checkout";
+import { Items } from "./checkout";
 import { getTaxBandById, getTaxForTaxBand } from "./helperFunctions";
-import { calculateDataPerItem, calculateTaxBandTotals } from "./subtotals";
+import { calculateDataPerItem } from "./subtotals";
 
 export function calculateTotalTax(items: Items) {
   const itemData = calculateDataPerItem(items);

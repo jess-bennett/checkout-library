@@ -1,11 +1,11 @@
-import { Items } from "../checkout";
+import { Items } from "./checkout";
 import { productData } from "../utils/productData";
 import { calculateDiscountPerItem } from "./discounts";
 import { getPriceById, getTaxBandById } from "./helperFunctions";
 import { calculateTaxPerItem } from "./taxes";
 
 export function calculateDataPerItem(items: Items) {
-  const subtotals: {
+  const itemData: {
     [id: string]: {
       description: string;
       quantity: number;
@@ -21,7 +21,7 @@ export function calculateDataPerItem(items: Items) {
       const subtotal = getPriceById(id) * quantity;
       const discount = calculateDiscountPerItem(id, subtotal);
       const tax = calculateTaxPerItem(id, subtotal, discount);
-      subtotals[id] = {
+      itemData[id] = {
         description: product.description,
         quantity,
         subtotal,
@@ -30,8 +30,8 @@ export function calculateDataPerItem(items: Items) {
       };
     }
   });
-  console.log(subtotals);
-  return subtotals;
+
+  return itemData;
 }
 
 export function calculateSubtotal(items: Items) {
@@ -43,26 +43,4 @@ export function calculateSubtotal(items: Items) {
     0
   );
   return totalSubtotal;
-}
-
-// export function calculateCategoryTotals(items: Items) {
-//   const subtotals = calculateDataPerItem(items);
-//   const categoryTotals: { [category: string]: number } = {};
-//   Object.entries(subtotals).forEach(([id, { subtotal }]) => {
-//     const category = getCategoryById(id);
-//     categoryTotals[category] = (categoryTotals[category] || 0) + subtotal;
-//   });
-
-//   return categoryTotals;
-// }
-
-export function calculateTaxBandTotals(items: Items) {
-  const subtotals = calculateDataPerItem(items);
-  const taxBandTotals: { [taxBand: string]: number } = {};
-  Object.entries(subtotals).forEach(([id, { subtotal }]) => {
-    const taxBand = getTaxBandById(id);
-    taxBandTotals[taxBand] = (taxBandTotals[taxBand] || 0) + subtotal;
-  });
-
-  return taxBandTotals;
 }
